@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @pet.name %>
+</p>
+<p>
+  <strong>Dueño:</strong>
+  <%= @pet.cliente.name %>
+</p>
+
+<p>
+  <strong>Raza:</strong>
+  <%= @pet.race %>
+</p>
+
+<p>
+  <strong>Nacimiento:</strong>
+  <%= @pet.dbay %>
+</p>
+
+<p>
+  <strong>Altura:</strong>
+  <%= @pet.pethistories.pluck(:alto).last %>
+</p>
+<p>
+<strong>Peso actual:</strong>
+<%= @pet.pethistories.pluck(:peso).last %>
+</p>
+
+<table  class="table table-striped">
+  <thead>
+    <tr>
+      <th>Dueño</th>
+      <th>Altura máxima:</th>
+      <th>Peso máximo</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+        <td><%= @pet.cliente.name %></td>
+        <td><%= @pet.altura_max %></td>
+        <td><%= @pet.peso_max %></td>
+
+
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>
